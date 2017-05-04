@@ -9,8 +9,8 @@ server.connection({
 server.route({
     method: 'GET',
     path: '/',
-    handler: (request, response) => {
-        response({ success: true })
+    handler: (request, reply) => {
+        reply({ success: true, message: 'Hello World' })
     }
 });
 
