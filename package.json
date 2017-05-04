@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/pdxmholmes/holmescode.com/issues"
   },
-  "homepage": "https://github.com/pdxmholmes/holmescode.com#readme"
+  "homepage": "https://github.com/pdxmholmes/holmescode.com#readme",
+  "dependencies": {
+    "hapi": "^16.1.1"
+  }
 }
