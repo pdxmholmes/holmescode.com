@@ -8,13 +8,17 @@ using Microsoft.AspNetCore.Hosting;
 namespace holmescode.com {
     public class Program {
         public static void Main(string[] args) {
-            var host = new WebHostBuilder()
+            var builder = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
+                .UseStartup<Startup>();
 
+            if (Environment.GetEnvironmentVariable("REGION_NAME") != null) {
+                builder.UseAzureAppServices();
+            }
+
+            var host = builder.Build();
             host.Run();
         }
     }
