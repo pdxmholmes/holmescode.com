@@ -28,7 +28,7 @@ namespace holmescode.com {
             // Add framework services.
             services.AddMvc();
             services.AddOptions();
-            services.Configure<Database>(Configuration.GetSection("Database"));
+            services.Configure<DatabaseSettings>(Configuration.GetSection("DatabaseSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,5 @@
 namespace holmescode.com.Models {
-    public class Database {
+    public class DatabaseSettings {
         public string MongoUrl { get; set; }
     }
 }
