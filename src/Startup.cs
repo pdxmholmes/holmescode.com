@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using holmescode.com.Models;
 
 namespace holmescode.com {
     public class Startup {
@@ -26,6 +27,8 @@ namespace holmescode.com {
         public void ConfigureServices(IServiceCollection services) {
             // Add framework services.
             services.AddMvc();
+            services.AddOptions();
+            services.Configure<Database>(Configuration.GetSection("Database"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +41,7 @@ namespace holmescode.com {
                 app.UseBrowserLink();
             }
             else {
-                //app.UseRewriter(new RewriteOptions().AddRedirectToHttpsPermanent());
+                app.UseRewriter(new RewriteOptions().AddRedirectToHttps());
                 app.UseExceptionHandler("/Home/Error");
             }
 
