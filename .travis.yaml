@@ -1,0 +1,9 @@
+language: csharp
+solution: ./src/holmescode.com.csproj
+mono: none
+dotnet: 1.0.1
+dist: trusty
+script:
+  - cd src
+  - dotnet restore
+  - dotnet build holmescode.com.csproj -c Release -o ./build
