@@ -14,10 +14,6 @@ namespace holmescode.com {
                 .UseIISIntegration()
                 .UseStartup<Startup>();
 
-            if (Environment.GetEnvironmentVariable("REGION_NAME") != null) {
-                builder.UseAzureAppServices();
-            }
-
             var host = builder.Build();
             host.Run();
         }

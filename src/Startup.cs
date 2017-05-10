@@ -41,7 +41,6 @@ namespace holmescode.com {
                 app.UseBrowserLink();
             }
             else {
-                app.UseRewriter(new RewriteOptions().AddRedirectToHttps());
                 app.UseExceptionHandler("/Home/Error");
             }
 
