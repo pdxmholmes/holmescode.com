@@ -1,7 +1,7 @@
 FROM microsoft/dotnet:1.1-runtime
 
 WORKDIR /app
-COPY ${CWD}/src/build .
+COPY dist .
 
 EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000

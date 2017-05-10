@@ -14,11 +14,10 @@ before_install:
   - sudo docker --version
 
 script:
-  - dotnet restore ./src/holmescode.com.csproj
-  - dotnet build ./src/holmescode.com.csproj -c Release -o ./src/build
-  - ls ./src/build
-  - echo $TRAVIS_BUILD_DIR
-  - docker build --build-arg CWD=$TRAVIS_BUILD_DIR -t mattholmes/website:latest .
+  - dotnet restore $TRAVIS_BUILD_DIR/src/holmescode.com.csproj
+  - dotnet build $TRAVIS_BUILD_DIR/src/holmescode.com.csproj -c Release -o $TRAVIS_BUILD_DIR/dist
+  - ls $TRAVIS_BUILD_DIR/dist
+  - docker build -t mattholmes/website:latest .
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
