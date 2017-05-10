@@ -14,7 +14,7 @@ before_install:
   - sudo docker --version
 
 script:
-  - dotnet restore $TRAVIS_BUILD_DIR/src/holmescode.com.csproj
+  - dotnet restore $TRAVIS_BUILD_DIR/src/holmescode.com.csproj --packages $TRAVIS_BUILD_DIR/src/build
   - dotnet build $TRAVIS_BUILD_DIR/src/holmescode.com.csproj -c Release -o $TRAVIS_BUILD_DIR/src/build
   - ls $TRAVIS_BUILD_DIR/src
   - ls $TRAVIS_BUILD_DIR/src/build

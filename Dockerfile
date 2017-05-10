@@ -7,6 +7,4 @@ EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000
 ENV ASPNETCORE_ENVIRONMENT Production
 
-RUN dotnet restore
-
 ENTRYPOINT ["dotnet", "holmescode.com.dll"]
