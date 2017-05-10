@@ -15,8 +15,9 @@ before_install:
 
 script:
   - dotnet restore $TRAVIS_BUILD_DIR/src/holmescode.com.csproj
-  - dotnet build $TRAVIS_BUILD_DIR/src/holmescode.com.csproj -c Release -o $TRAVIS_BUILD_DIR/dist
-  - ls $TRAVIS_BUILD_DIR/dist
+  - dotnet build $TRAVIS_BUILD_DIR/src/holmescode.com.csproj -c Release -o $TRAVIS_BUILD_DIR/src/build
+  - ls $TRAVIS_BUILD_DIR/src
+  - ls $TRAVIS_BUILD_DIR/src/build
   - docker build -t mattholmes/website:latest .
 
 after_success:
