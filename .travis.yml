@@ -16,7 +16,9 @@ before_install:
 script:
   - dotnet restore ./src/holmescode.com.csproj
   - dotnet build ./src/holmescode.com.csproj -c Release -o ./src/build
-  - docker build --build-arg CWD=$PWD -t mattholmes/website:latest .
+  - ls ./src/build
+  - echo $TRAVIS_BUILD_DIR
+  - docker build --build-arg CWD=$TRAVIS_BUILD_DIR -t mattholmes/website:latest .
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
